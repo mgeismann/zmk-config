@@ -115,7 +115,7 @@
 &kp TAB     &kp Q   &kp W   &kp E      &kp R      &kp T                                 &kp Y      &kp U     &kp I          &kp O     &kp P           &kp LBRC
 &kp Q       &kp A   &kp S   &kp D      &kp F      &kp G            &kp LGUI             &kp H      &kp J     &kp K          &kp L     &kp SEMI    &kp P
 &kp LSHIFT  &mt LGUI Z  &kp X   &kp C      &kp V      &kp B                             &kp N      &kp M     &kp COMMA      &kp DOT  &mt LGUI SLASH  &kp RIGHT
-                            &kp LCTRL  &kp SPACE  &kp LALT  &mo NAV            &kp TILDE  &mo NUMBERS  &kp RGUI  &kp BACKSPACE
+                            &kp LGUI  &none  &lt 1 SPACE  &kp LSHIFT    &kp RSHIFT     &kp ENTER   &mo NUMBERS  &kp RGUI
             >;
         };
 
@@ -141,8 +141,8 @@
 
         fkeys {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                         &kp F1  &kp F2  &kp F3   &kp F4   &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans   &trans   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                         &kp F1  &kp F2  &kp F3   &kp F4   &trans  &trans
 &trans  &trans  &trans  &kp LALT  &trans  &trans      &trans           &kp F5  &kp F6  &kp F7   &kp F8   &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                         &kp F9  &kp F10 &kp F11  &kp F12  &trans  &trans
                         &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans
