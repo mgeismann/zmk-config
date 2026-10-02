@@ -17,7 +17,7 @@
 #define NUMBERS  4
 #define FKEYS    5
 #define BT       6
-#defin TIMEOUT_MS 20
+#define TIMEOUT_MS 20
 
 / {
     combos {
