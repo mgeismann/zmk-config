@@ -8,100 +8,103 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define BASE     0
 #define LOWER    1
-#define NAV      2
-#define NUMBERS  3
-#define FKEYS    4
-#define BT       5
+#define MEDIA    2
+#define NAV      3
+#define NUMBERS  4
+#define FKEYS    5
+#define BT       6
+#defin TIMEOUT-MS 20
 
 / {
     combos {
         compatible = "zmk,combos";
 
         combo_boot {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <4 5 6 7>;
             bindings = <&bootloader>;
         };
 
         combo_bt {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <49 56>;
             bindings = <&mo BT>;
         };
 
         /* ---- right hand mod-combos (J K L / I U O) ---- */
         combo_r_ctrl {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <32 33>;        /* J K */
             bindings = <&kp LCTRL>;
         };
         combo_r_alt {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <33 34>;        /* K L */
             bindings = <&kp LALT>;
         };
         combo_r_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <32 34>;        /* J L */
             bindings = <&kp LSHIFT>;
         };
         combo_r_ctrl_alt {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <32 33 34>;     /* J K L */
             bindings = <&kp LC(LALT)>;
         };
         combo_r_ctrl_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <19 20>;        /* U I */
             bindings = <&kp LC(LSHIFT)>;
         };
         combo_r_alt_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <20 21>;        /* I O */
             bindings = <&kp LA(LSHIFT)>;
         };
         combo_r_ctrl_alt_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <19 20 21>;     /* U I O */
             bindings = <&kp LC(LA(LSHIFT))>;
         };
 
         /* ---- left hand mod-combos (S D F / W E R) ---- */
         combo_l_ctrl {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <27 28>;        /* D F */
             bindings = <&kp LCTRL>;
         };
         combo_l_alt {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <26 27>;        /* S D */
             bindings = <&kp LALT>;
         };
         combo_l_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <26 28>;        /* S F */
             bindings = <&kp LSHIFT>;
         };
         combo_l_ctrl_alt {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <26 27 28>;     /* S D F */
             bindings = <&kp LC(LALT)>;
         };
         combo_l_ctrl_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <15 16>;        /* E R */
             bindings = <&kp LC(LSHIFT)>;
         };
         combo_l_alt_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <14 15>;        /* W E */
             bindings = <&kp LA(LSHIFT)>;
         };
         combo_l_ctrl_alt_shift {
-            timeout-ms = <20>;
+            timeout-ms = <TIMEOUT-MS>;
             key-positions = <14 15 16>;     /* W E R */
             bindings = <&kp LC(LA(LSHIFT))>;
         };
@@ -116,7 +119,7 @@
 &kp TAB     &kp Q   &kp W   &kp E      &kp R      &kp T                                 &kp Y      &kp U     &kp I          &kp O     &kp P           &kp LBRC
 &kp Q       &kp A   &kp S   &kp D      &kp F      &kp G            &kp LGUI             &kp H      &kp J     &kp K          &kp L     &kp SEMI    &kp P
 &kp LSHIFT  &mt LGUI Z  &kp X   &kp C      &kp V      &kp B                             &kp N      &kp M     &kp COMMA      &kp DOT  &mt LGUI SLASH  &kp RIGHT
-                            &kp LGUI  &mo LOWER  &lt NAV SPACE  &kp LSHIFT    &kp RSHIFT     &kp ENTER   &mo NUMBERS  &kp RGUI
+                            &kp LGUI  &mo LOWER  &lt NAV SPACE  &kp LSHIFT    &kp RSHIFT     &lt MEDIA ENTER   &mo NUMBERS  &kp RGUI
             >;
         };
 
@@ -129,14 +132,28 @@
                                 &none    &trans    &trans     &trans          &trans  &kp DEL   &trans  &none
             >;
         };
+    //     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,              /**/ KC_NO, KC_WH_D, KC_MS_UP, KC_WH_U, KC_NO, KC_NO,
+    //     KC_NO, UMLAUT_A, SZ, KC_VOLD, KC_VOLU, KC_MUTE,          /**/ KC_HOME, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_NO, KC_NO,
+    //     KC_NO, TO(MOUSE), KC_NO, KC_NO, KC_MPLY, KC_NO/* TD(TD_MNXT_MPRV) */, /**/ KC_END, KC_NO, KC_NO, KC_NO, TO(MOUSE), KC_NO,
+    //     KC_NO, KC_NO, KC_NO,            /**/ KC_NO, KC_TRNS, KC_NO),
+
+        media {
+            bindings = <
+&trans  &trans      &trans      &trans   &trans    &trans                                   &trans         &trans         &trans           &trans     &trans &trans
+&trans  &trans      &trans      &trans   &trans    &trans                                   &msc SCROLL_UP &mmv MOVE_UP   &msc SCROLL_DOWN &trans     &trans &trans
+&trans  &kp RA(Q)   &kp RA(S)   &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &trans               &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT  &kp LSHIFT &trans &trans
+&trans  &trans      &trans      &trans   &trans    &trans                                   &none    &none    &none  &none  &none  &none
+                                &none    &mkp MB2    &mkp MB1     &trans          &trans  &kp DEL   &trans  &none
+            >;
+        };
 
         nav {
             bindings = <
 &kp TILDE  &kp EXCL  &kp AT   &kp HASH  &kp DLLR  &kp PRCNT                                      &kp CARET  &kp AMPS    &kp ASTRK  &kp LPAR   &kp RPAR         &kp DEL
-&kp GRAVE  &kp F1    &kp F2   &kp F3    &kp F4    &kp LBRC                                       &kp RBRC   &kp HOME    &kp UP     &kp END    &kp PG_UP        &kp DQT
-&trans     &trans    &kp LSHIFT  &kp LALT  &sl FKEYS  &kp LPAR                 &trans            &kp RPAR   &kp LEFT    &kp DOWN   &kp RIGHT  &kp PG_DN        &kp INS
+&kp GRAVE  &kp F1    &kp F2   &kp F3    &kp F4    &kp LBRC                                       &kp RBRC   &kp RA(Y)   &kp UP     &kp RA(P)  &kp PG_UP        &kp DQT
+&trans     &trans    &kp LSHIFT  &kp LALT  &sl FKEYS  &kp LPAR                 &trans            &kp PG_DN  &kp LEFT    &kp DOWN   &kp RIGHT  &kp PG_UP        &kp INS
 &trans     &kp F9    &kp F10  &kp F11   &kp F12   &kp LBKT                                       &kp RBKT   &kp K_APP   &kp PSCRN  &kp SLCK   &kp PAUSE_BREAK  &trans
-                              &none     &trans    &trans     &kp C_VOL_DN          &kp C_VOL_UP  &trans     &kp C_MUTE  &none
+                              &none     &trans    &trans     &none          &none  &trans     &none  &none
             >;
         };
 
@@ -152,11 +169,11 @@
 
         fkeys {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans   &trans   &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                         &kp F1  &kp F2  &kp F3   &kp F4   &trans  &trans
-&trans  &trans  &trans  &kp LALT  &trans  &trans      &trans           &kp F5  &kp F6  &kp F7   &kp F8   &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                         &kp F9  &kp F10 &kp F11  &kp F12  &trans  &trans
-                        &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans    &trans    &trans                         &trans  &trans  &trans   &trans   &trans  &trans
+&trans  &trans  &trans  &trans    &trans    &trans                         &kp F1  &kp F2  &kp F3   &kp F4   &trans  &trans
+&trans  &trans  &LSHIFT &kp LALT  &kp LCTRL &trans      &trans             &kp F5  &kp F6  &kp F7   &kp F8   &trans  &trans
+&trans  &trans  &trans  &trans    &trans    &trans                         &kp F9  &kp F10 &kp F11  &kp F12  &trans  &trans
+                        &trans    &trans    &trans  &trans         &trans  &trans  &trans  &trans
             >;
         };
 
