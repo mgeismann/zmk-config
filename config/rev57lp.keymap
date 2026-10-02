@@ -17,94 +17,94 @@
 #define NUMBERS  4
 #define FKEYS    5
 #define BT       6
-#defin TIMEOUT-MS 20
+#defin TIMEOUT_MS 20
 
 / {
     combos {
         compatible = "zmk,combos";
 
         combo_boot {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <4 5 6 7>;
             bindings = <&bootloader>;
         };
 
         combo_bt {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <49 56>;
             bindings = <&mo BT>;
         };
 
         /* ---- right hand mod-combos (J K L / I U O) ---- */
         combo_r_ctrl {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <32 33>;        /* J K */
             bindings = <&kp LCTRL>;
         };
         combo_r_alt {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <33 34>;        /* K L */
             bindings = <&kp LALT>;
         };
         combo_r_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <32 34>;        /* J L */
             bindings = <&kp LSHIFT>;
         };
         combo_r_ctrl_alt {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <32 33 34>;     /* J K L */
             bindings = <&kp LC(LALT)>;
         };
         combo_r_ctrl_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <19 20>;        /* U I */
             bindings = <&kp LC(LSHIFT)>;
         };
         combo_r_alt_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <20 21>;        /* I O */
             bindings = <&kp LA(LSHIFT)>;
         };
         combo_r_ctrl_alt_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <19 20 21>;     /* U I O */
             bindings = <&kp LC(LA(LSHIFT))>;
         };
 
         /* ---- left hand mod-combos (S D F / W E R) ---- */
         combo_l_ctrl {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <27 28>;        /* D F */
             bindings = <&kp LCTRL>;
         };
         combo_l_alt {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <26 27>;        /* S D */
             bindings = <&kp LALT>;
         };
         combo_l_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <26 28>;        /* S F */
             bindings = <&kp LSHIFT>;
         };
         combo_l_ctrl_alt {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <26 27 28>;     /* S D F */
             bindings = <&kp LC(LALT)>;
         };
         combo_l_ctrl_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <15 16>;        /* E R */
             bindings = <&kp LC(LSHIFT)>;
         };
         combo_l_alt_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <14 15>;        /* W E */
             bindings = <&kp LA(LSHIFT)>;
         };
         combo_l_ctrl_alt_shift {
-            timeout-ms = <TIMEOUT-MS>;
+            timeout-ms = <TIMEOUT_MS>;
             key-positions = <14 15 16>;     /* W E R */
             bindings = <&kp LC(LA(LSHIFT))>;
         };
@@ -132,10 +132,6 @@
                                 &none    &trans    &trans     &trans          &trans  &kp DEL   &trans  &none
             >;
         };
-    //     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,              /**/ KC_NO, KC_WH_D, KC_MS_UP, KC_WH_U, KC_NO, KC_NO,
-    //     KC_NO, UMLAUT_A, SZ, KC_VOLD, KC_VOLU, KC_MUTE,          /**/ KC_HOME, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_NO, KC_NO,
-    //     KC_NO, TO(MOUSE), KC_NO, KC_NO, KC_MPLY, KC_NO/* TD(TD_MNXT_MPRV) */, /**/ KC_END, KC_NO, KC_NO, KC_NO, TO(MOUSE), KC_NO,
-    //     KC_NO, KC_NO, KC_NO,            /**/ KC_NO, KC_TRNS, KC_NO),
 
         media {
             bindings = <
