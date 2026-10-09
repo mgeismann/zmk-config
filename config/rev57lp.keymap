@@ -20,6 +20,10 @@
 #define MOUSE    7
 #define TIMEOUT_MS 20
 
+&mt {
+    tapping-term-ms = <125>;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
