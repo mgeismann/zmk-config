@@ -132,7 +132,7 @@
 	    bindings = <
 &none  &none      &none      &none   &none    &none                                   &none        &none    &none    &none    &none     &none
 &none  &none      &none      &none   &none    &none                                   &kp ESC       &kp TILDE &none    &none    &none     &none
-&none  &none      &kp LSHIFT  &kp LALT &kp LCTRL &none                 &none            &kp TAB       &kp LBRC  &kp RBRC  &kp SQT  &kp BSLH   &none
+&none  &none      &kp LSHIFT  &kp LALT &kp LCTRL &none                 &none            &kp TAB       &kp LBKT  &kp RBKT  &kp SQT  &kp BSLH   &none
 &none  &kp LGUI    &none      &none   &none    &none                                   &kp BACKSPACE &kp F4    &kp CAPS  &kp BSLH  &kp GRAVE  &none
                                 &none    &none    &none     &none          &none  &kp DEL   &none  &none
             >;
